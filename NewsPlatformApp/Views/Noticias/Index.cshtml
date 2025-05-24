@@ -1,0 +1,26 @@
+@model IEnumerable<NewsPlatformApp.Models.Post>
+@{
+    ViewData["Title"] = "Noticias";
+}
+
+<h2 class="mb-4">Noticias recientes</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach(var p in Model)
+    {
+        <tr>
+            <td>@p.Title</td>
+            <td>
+                <a href="@Url.Action("Detalle", "Noticias", new { id = p.Id })" class="btn btn-primary btn-sm">Ver detalle</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

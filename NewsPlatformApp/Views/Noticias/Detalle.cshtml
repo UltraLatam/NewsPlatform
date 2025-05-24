@@ -1,0 +1,80 @@
+@model NewsPlatformApp.Models.DetallePostViewModel
+@{
+    ViewData["Title"] = "Detalle de Noticia";
+}
+<h2>@Model.Post.Title</h2>
+<hr />
+<div>
+    <strong>Autor:</strong> @Model.Autor?.Name (@Model.Autor?.Email)
+</div>
+<div>
+    <strong>Contenido:</strong>
+    <p>@Model.Post.Body</p>
+</div>
+
+<h4>Comentarios:</h4>
+@if(Model.Comentarios.Count == 0)
+{
+    <p>No hay comentarios para esta noticia.</p>
+}
+else
+{
+    <ul class="list-group">
+        @foreach(var c in Model.Comentarios)
+        {
+            <li class="list-group-item">
+                <b>@c.Name</b> (<i>@c.Email</i>): @c.Body
+            </li>
+        }
+    </ul>
+}
+
+<hr />
+<h4>Reacción:</h4>
+@if (Model.Feedback == null)
+{
+    <button class="btn btn-success" onclick="enviarFeedback('like')">👍 Me gustó</button>
+    <button class="btn btn-danger" onclick="enviarFeedback('dislike')">👎 No me gustó</button>
+}
+else
+{
+    <span>
+        @if (Model.Feedback.Sentimiento == "like")
+        {
+            <b class="text-success">Ya reaccionaste: 👍 Me gustó</b>
+        }
+        else
+        {
+            <b class="text-danger">Ya reaccionaste: 👎 No me gustó</b>
+        }
+    </span>
+}
+<div id="feedbackMsg"></div>
+
+@section Scripts {
+    <script>
+        function enviarFeedback(sentimiento) {
+            fetch('/api/feedbackapi', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    postId: @Model.Post.Id,
+                    sentimiento: sentimiento
+                })
+            })
+            .then(resp => {
+                if (resp.ok) return resp.json();
+                return resp.text().then(msg => { throw msg });
+            })
+            .then(data => {
+                document.getElementById('feedbackMsg').innerHTML =
+                    '<span class="text-success">¡Gracias por tu feedback!</span>';
+                setTimeout(() => location.reload(), 1000);
+            })
+            .catch(error => {
+                document.getElementById('feedbackMsg').innerHTML =
+                    '<span class="text-danger">' + error + '</span>';
+            });
+        }
+    </script>
+}
