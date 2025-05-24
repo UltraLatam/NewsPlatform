@@ -2,7 +2,6 @@ using NewsPlatformApp.Data;
 using Microsoft.EntityFrameworkCore;
 using NewsPlatformApp.Services;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
@@ -10,7 +9,6 @@ builder.Services.AddHttpClient<JsonPlaceholderService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -26,16 +24,13 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles(); // <-- IMPORTANTE para servir archivos estáticos (CSS, JS, imágenes)
 app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapStaticAssets();
-
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
-
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
