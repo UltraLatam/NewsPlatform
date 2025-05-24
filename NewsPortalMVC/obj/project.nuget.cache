@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "YKUXCVvy3AI=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\USUARIO\\NewsPlatform\\NewsPortalMVC\\NewsPortalMVC.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\9.0.4\\microsoft.netcore.app.host.win-x64.9.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}
