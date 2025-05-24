@@ -113,6 +113,7 @@ C:\Users\USUARIO\NewsPlatform\NewsPlatformApp\obj\Debug\net9.0\NewsPlatformApp.c
 C:\Users\USUARIO\NewsPlatform\NewsPlatformApp\obj\Debug\net9.0\NewsPlatformApp.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\USUARIO\NewsPlatform\NewsPlatformApp\obj\Debug\net9.0\NewsPlatformApp.RazorAssemblyInfo.cache
 C:\Users\USUARIO\NewsPlatform\NewsPlatformApp\obj\Debug\net9.0\NewsPlatformApp.RazorAssemblyInfo.cs
+C:\Users\USUARIO\NewsPlatform\NewsPlatformApp\obj\Debug\net9.0\NewsPlatformApp.sourcelink.json
 C:\Users\USUARIO\NewsPlatform\NewsPlatformApp\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\USUARIO\NewsPlatform\NewsPlatformApp\obj\Debug\net9.0\scopedcss\bundle\NewsPlatformApp.styles.css
 C:\Users\USUARIO\NewsPlatform\NewsPlatformApp\obj\Debug\net9.0\scopedcss\projectbundle\NewsPlatformApp.bundle.scp.css
